@@ -37,9 +37,10 @@ public class MainActivity extends Activity {
 
         boton1 = findViewById(R.id.button);
 
-        // Version tradicional
+        // Version 1: estilo tradicional de java (visto en el primer curso)
         // boton1.setOnClickListener(new ButtonListener());
 
+        // Version 2: Configurado con una clase anonima
         boton1.setOnClickListener(new View.OnClickListener() {
 
             @Override
