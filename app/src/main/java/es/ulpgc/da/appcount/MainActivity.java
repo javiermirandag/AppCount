@@ -12,19 +12,6 @@ public class MainActivity extends Activity {
     private Button boton1;
     private int contador;
 
-    // Esta clase solamente es necesaria si configuramos el observador
-    // del boton utilizando el estilo tradicional de Java (podemos
-    // borrarla si lo configuramos con una clase anónima)
-    class ButtonListener implements View.OnClickListener {
-
-        @Override
-        public void onClick(View view) {
-            Log.d("MainActivity", "boton pulsado");
-            contador++;
-            pantalla.setText("" + contador);
-        }
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +24,7 @@ public class MainActivity extends Activity {
 
         boton1 = findViewById(R.id.button);
 
-        // Version 1: estilo tradicional de java (visto en el primer curso)
-        // boton1.setOnClickListener(new ButtonListener());
-
-        // Version 2: Configurado con una clase anonima
+        // Configurado el observador con una clase anonima
         boton1.setOnClickListener(new View.OnClickListener() {
 
             @Override
