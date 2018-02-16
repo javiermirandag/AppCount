@@ -17,6 +17,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import es.ulpgc.da.appcount.mainscreen.MainView;
+
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -32,7 +34,7 @@ import static org.hamcrest.Matchers.is;
 public class MainActivityTest03 {
 
     @Rule
-    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainView> mActivityTestRule = new ActivityTestRule<>(MainView.class);
 
     @Test
     public void mainActivityTest03() {

@@ -1,4 +1,4 @@
-package es.ulpgc.da.appcount;
+package es.ulpgc.da.appcount.mainscreen;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,12 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+import es.ulpgc.da.appcount.R;
+import es.ulpgc.da.appcount.mainscreen.MainPresenter;
+import es.ulpgc.da.appcount.MediatorApp;
+
+public class MainView extends Activity implements Main.PresenterToView {
     protected final String TAG = this.getClass().getSimpleName();
 
     private TextView pantalla;
     private Button boton1;
-    private Presenter myPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +26,20 @@ public class MainActivity extends Activity {
         pantalla = findViewById(R.id.textView);
         boton1 = findViewById(R.id.button);
 
-        myPresenter = new Presenter();
-        pantalla.setText("" + myPresenter.getContador());
+        final MediatorApp mediator = (MediatorApp) getApplication();
+        final MainPresenter myPresenter = mediator.getPresenter(this);
+
+        pantalla.setText(mediator.getPresenter(this).getTextToDisplay());
 
         // Configurado el observador con una clase anonima
         boton1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Log.d("MainActivity", "boton pulsado");
+                Log.d(TAG, "boton pulsado");
 
-                myPresenter.botonMasPulsado();
-                pantalla.setText("" + myPresenter.getContador());
+                myPresenter.buttonPlusPressed();
+                pantalla.setText(myPresenter.getTextToDisplay());
             }
         });
 
