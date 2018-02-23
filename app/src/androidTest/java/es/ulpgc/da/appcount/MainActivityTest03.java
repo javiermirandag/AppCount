@@ -36,8 +36,16 @@ public class MainActivityTest03 {
     @Rule
     public ActivityTestRule<MainView> mActivityTestRule = new ActivityTestRule<>(MainView.class);
 
+    private void before() {
+        Mediator mediator =
+                (Mediator) mActivityTestRule.getActivity().getApplication();
+        mediator.resetApp();
+    }
+
     @Test
     public void mainActivityTest03() {
+        before();
+
         ViewInteraction button = onView(
                 allOf(withId(R.id.button), withText("+"),
                         childAtPosition(

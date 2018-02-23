@@ -5,13 +5,15 @@ import es.ulpgc.da.appcount.mainscreen.MainView;
 
 public interface Mediator {
     MainPresenter getPresenter(MainView view);
+    void resetApp();
+    void log_d(String tag, String text);
 
-    public interface lifecycle {
+    interface lifecycle {
 
     }
 
-    public interface navigation {
-
+    interface navigation {
+        void openWebPage(String url);
     }
 
 }

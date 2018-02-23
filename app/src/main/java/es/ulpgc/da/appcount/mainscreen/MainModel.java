@@ -1,10 +1,14 @@
 package es.ulpgc.da.appcount.mainscreen;
 
+import es.ulpgc.da.appcount.Mediator;
+
 public class MainModel implements Main.PresenterToModel {
+    protected final String TAG = this.getClass().getSimpleName();
     private int contador;
 
-    public MainModel() {
-        contador = 0;
+    public MainModel(Mediator mediator) {
+        mediator.log_d(TAG, "starting MainModel");
+        reset();
     }
 
     @Override
@@ -15,5 +19,10 @@ public class MainModel implements Main.PresenterToModel {
     @Override
     public int getContador() {
         return contador;
+    }
+
+    @Override
+    public void reset() {
+        contador = 0;
     }
 }
