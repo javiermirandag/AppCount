@@ -2,13 +2,13 @@ package es.ulpgc.da.appcount.mainscreen;
 
 public interface Main {
 
-    interface ModelToPresenter {
-    }
-
     interface PresenterToModel {
         void increment();
 
         int getContador();
+    }
+
+    interface ModelToPresenter {
     }
 
     interface PresenterToView {
