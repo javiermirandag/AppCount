@@ -8,8 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import es.ulpgc.da.appcount.R;
-import es.ulpgc.da.appcount.mainscreen.MainPresenter;
-import es.ulpgc.da.appcount.MediatorApp;
+import es.ulpgc.da.appcount.Mediator;
 
 public class MainView extends Activity implements Main.PresenterToView {
     protected final String TAG = this.getClass().getSimpleName();
@@ -26,8 +25,8 @@ public class MainView extends Activity implements Main.PresenterToView {
         pantalla = findViewById(R.id.textView);
         boton1 = findViewById(R.id.button);
 
-        final MediatorApp mediator = (MediatorApp) getApplication();
-        final MainPresenter myPresenter = mediator.getPresenter(this);
+        final Mediator mediator = (Mediator) getApplication();
+        final Main.ViewToPresenter myPresenter = mediator.getPresenter(this);
 
         pantalla.setText(mediator.getPresenter(this).getTextToDisplay());
 

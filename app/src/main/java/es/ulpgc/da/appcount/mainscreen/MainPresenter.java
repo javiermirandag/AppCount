@@ -1,15 +1,15 @@
 package es.ulpgc.da.appcount.mainscreen;
 
-import es.ulpgc.da.appcount.MediatorApp;
+import es.ulpgc.da.appcount.Mediator;
 
 public class MainPresenter implements Main.ViewToPresenter, Main.ModelToPresenter {
-    private MediatorApp myMediator;
-    private MainModel myModel;
-    private MainView  myView;
+    private Mediator myMediator;
+    private Main.PresenterToModel myModel;
+    private Main.PresenterToView  myView;
 
-    public MainPresenter(MediatorApp mediator,
-                         MainModel model,
-                         MainView view) {
+    public MainPresenter(Mediator mediator,
+                         Main.PresenterToModel model,
+                         Main.PresenterToView view) {
         myMediator = mediator;
         myModel = model;
         myView = view;

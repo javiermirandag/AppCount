@@ -6,7 +6,7 @@ import es.ulpgc.da.appcount.mainscreen.MainModel;
 import es.ulpgc.da.appcount.mainscreen.MainPresenter;
 import es.ulpgc.da.appcount.mainscreen.MainView;
 
-public class MediatorApp extends Application {
+public class MediatorApp extends Application implements Mediator {
     private MainPresenter myPresenter;
     private MainModel myModel;
 
@@ -20,6 +20,7 @@ public class MediatorApp extends Application {
         super.onTerminate();
     }
 
+    @Override
     public MainPresenter getPresenter(MainView view) {
         if (myPresenter == null) {
             myModel = new MainModel();
