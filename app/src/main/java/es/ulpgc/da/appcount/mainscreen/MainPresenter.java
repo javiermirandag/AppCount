@@ -1,8 +1,11 @@
 package es.ulpgc.da.appcount.mainscreen;
 
 import es.ulpgc.da.appcount.Mediator;
+import es.ulpgc.da.appcount.framework.I_Model;
+import es.ulpgc.da.appcount.framework.I_Presenter;
+import es.ulpgc.da.appcount.framework.I_View;
 
-public class MainPresenter implements Main.ViewToPresenter, Main.ModelToPresenter {
+public class MainPresenter implements I_Presenter, Main.ViewToPresenter, Main.ModelToPresenter {
     protected final String TAG = this.getClass().getSimpleName();
 
     private Mediator myMediator;
@@ -10,12 +13,12 @@ public class MainPresenter implements Main.ViewToPresenter, Main.ModelToPresente
     private Main.PresenterToView  myView;
 
     public MainPresenter(Mediator mediator,
-                         Main.PresenterToModel model,
-                         Main.PresenterToView view) {
+                         I_Model model,
+                         I_View view) {
         mediator.log_d(TAG, "starting MainPresenter");
         myMediator = mediator;
-        myModel = model;
-        myView = view;
+        myModel = (Main.PresenterToModel) model;
+        myView = (Main.PresenterToView) view;
     }
 
     @Override

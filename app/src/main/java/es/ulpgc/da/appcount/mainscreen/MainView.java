@@ -16,8 +16,9 @@ import java.util.Date;
 
 import es.ulpgc.da.appcount.R;
 import es.ulpgc.da.appcount.Mediator;
+import es.ulpgc.da.appcount.framework.I_View;
 
-public class MainView extends Activity implements Main.PresenterToView {
+public class MainView extends Activity implements I_View, Main.PresenterToView {
     protected final String TAG = this.getClass().getSimpleName();
 
     private TextView timeTextView;
@@ -35,9 +36,10 @@ public class MainView extends Activity implements Main.PresenterToView {
         boton1 = findViewById(R.id.button);
 
         final Mediator mediator = (Mediator) getApplication();
-        final Main.ViewToPresenter myPresenter = mediator.getPresenter(this);
+        final Main.ViewToPresenter myPresenter =
+                (Main.ViewToPresenter) mediator.getPresenter(this);
 
-        pantalla.setText(mediator.getPresenter(this).getTextToDisplay());
+        pantalla.setText(myPresenter.getTextToDisplay());
 
         // Configurado el observador con una clase anonima
         boton1.setOnClickListener(new View.OnClickListener() {

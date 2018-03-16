@@ -1,8 +1,9 @@
 package es.ulpgc.da.appcount.mainscreen;
 
 import es.ulpgc.da.appcount.Mediator;
+import es.ulpgc.da.appcount.framework.I_Model;
 
-public class MainModel implements Main.PresenterToModel {
+public class MainModel implements I_Model, Main.PresenterToModel {
     protected final String TAG = this.getClass().getSimpleName();
     private int contador;
 
