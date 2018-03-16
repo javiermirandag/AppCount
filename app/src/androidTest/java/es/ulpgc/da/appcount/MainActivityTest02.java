@@ -40,31 +40,16 @@ public class MainActivityTest02 {
     public void mainActivityTest02() {
         ViewInteraction button = onView(
                 allOf(withId(R.id.button), withText("+"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.support.constraint.ConstraintLayout")),
-                                        0),
-                                1),
                         isDisplayed()));
         button.perform(click());
 
         ViewInteraction button2 = onView(
                 allOf(withId(R.id.button), withText("+"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.support.constraint.ConstraintLayout")),
-                                        0),
-                                1),
                         isDisplayed()));
         button2.perform(click());
 
         ViewInteraction textView = onView(
                 allOf(withId(R.id.textView),
-                        childAtPosition(
-                                childAtPosition(
-                                        IsInstanceOf.<View>instanceOf(android.view.ViewGroup.class),
-                                        0),
-                                0),
                         isDisplayed()));
         textView.check(matches(withText("2")));
 

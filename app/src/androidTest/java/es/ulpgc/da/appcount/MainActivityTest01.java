@@ -37,11 +37,6 @@ public class MainActivityTest01 {
     public void mainActivityTest01() {
         ViewInteraction textView = onView(
                 allOf(withId(R.id.textView),
-                        childAtPosition(
-                                childAtPosition(
-                                        IsInstanceOf.<View>instanceOf(android.view.ViewGroup.class),
-                                        0),
-                                0),
                         isDisplayed()));
         textView.check(matches(withText("0")));
 

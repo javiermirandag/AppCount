@@ -27,7 +27,7 @@ public class MainPresenter implements Main.ViewToPresenter, Main.ModelToPresente
     public void buttonPlusPressed() {
         myModel.increment();
 
-        if (myModel.getContador() % 3 == 0) {
+        if (myModel.getContador() % 4 == 0) {
             myView.displayShortMessage("Congrats!!! You reached " + myModel.getContador());
 
             ((Mediator.navigation) myMediator).openWebPage("http://www.ulpgc.es");
