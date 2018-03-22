@@ -24,6 +24,7 @@ public class MainView extends Activity implements I_View, Main.PresenterToView {
     private TextView timeTextView;
     private TextView pantalla;
     private Button boton1;
+    private Button botonData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class MainView extends Activity implements I_View, Main.PresenterToView {
         timeTextView = findViewById(R.id.timeTextView);
         pantalla = findViewById(R.id.textView);
         boton1 = findViewById(R.id.button);
+        botonData = findViewById(R.id.dataButton);
 
         final Mediator mediator = (Mediator) getApplication();
         final Main.ViewToPresenter myPresenter =
@@ -52,6 +54,18 @@ public class MainView extends Activity implements I_View, Main.PresenterToView {
                 pantalla.setText(myPresenter.getTextToDisplay());
             }
         });
+
+        // Configurado el observador con una clase anonima
+        botonData.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "botonData pulsado");
+
+                // myPresenter.buttonDataPressed();
+            }
+        });
+        botonData.setVisibility(View.INVISIBLE);
 
         displayCurrentTime();
     }

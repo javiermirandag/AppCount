@@ -14,6 +14,9 @@ import es.ulpgc.da.appcount.framework.I_View;
 import es.ulpgc.da.appcount.mainscreen.MainModel;
 import es.ulpgc.da.appcount.mainscreen.MainPresenter;
 import es.ulpgc.da.appcount.mainscreen.MainView;
+import es.ulpgc.da.appcount.masterscreen.MasterModel;
+import es.ulpgc.da.appcount.masterscreen.MasterPresenter;
+import es.ulpgc.da.appcount.masterscreen.MasterView;
 
 public class MediatorApp extends Application implements Mediator, Mediator.lifecycle, Mediator.navigation {
 
@@ -88,12 +91,24 @@ public class MediatorApp extends Application implements Mediator, Mediator.lifec
         }
 
         if (myPresenter == null) {
-            myModel = new MainModel(this);
-            myPresenter = new MainPresenter(this, myModel, view);
 
-            Screen newScreen = new Screen(myModel, view, myPresenter);
+            if (view instanceof MainView){
+                myModel = new MainModel(this);
+                myPresenter = new MainPresenter(this, myModel, view);
 
-            appScreens.add(newScreen);
+                Screen newScreen = new Screen(myModel, view, myPresenter);
+
+                appScreens.add(newScreen);
+
+            } else if (view instanceof MasterView) {
+                myModel = new MasterModel(this);
+                myPresenter = new MasterPresenter(this, myModel, view);
+
+                Screen newScreen = new Screen(myModel, view, myPresenter);
+
+                appScreens.add(newScreen);
+            }
+
         }
 
         return myPresenter;
@@ -118,5 +133,13 @@ public class MediatorApp extends Application implements Mediator, Mediator.lifec
         intent.setData(uri);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    @Override
+    public void openNextScreen(I_Presenter mainPresenter) {
+        if (mainPresenter instanceof MainPresenter) {
+            Intent intent = new Intent(this, MasterView.class);
+            startActivity(intent);
+        }
     }
 }

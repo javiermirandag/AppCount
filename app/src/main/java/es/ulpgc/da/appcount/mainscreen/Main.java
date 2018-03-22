@@ -19,6 +19,7 @@ public interface Main {
         String getTextToDisplay();
 
         void buttonPlusPressed();
+        void buttonDataPressed();
     }
 
 }

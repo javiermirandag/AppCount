@@ -17,6 +17,8 @@ public interface Mediator {
 
     interface navigation {
         void openWebPage(String url);
+
+        void openNextScreen(I_Presenter mainPresenter);
     }
 
 }

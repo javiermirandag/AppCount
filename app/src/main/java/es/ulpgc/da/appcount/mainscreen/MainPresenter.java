@@ -36,4 +36,9 @@ public class MainPresenter implements I_Presenter, Main.ViewToPresenter, Main.Mo
             ((Mediator.navigation) myMediator).openWebPage("http://www.ulpgc.es");
         }
     }
+
+    @Override
+    public void buttonDataPressed() {
+        ((Mediator.navigation) myMediator).openNextScreen(this);
+    }
 }
