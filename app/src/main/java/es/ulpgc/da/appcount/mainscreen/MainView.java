@@ -62,10 +62,10 @@ public class MainView extends Activity implements I_View, Main.PresenterToView {
             public void onClick(View view) {
                 Log.d(TAG, "botonData pulsado");
 
-                // myPresenter.buttonDataPressed();
+                myPresenter.buttonDataPressed();
             }
         });
-        botonData.setVisibility(View.INVISIBLE);
+        // botonData.setVisibility(View.INVISIBLE);
 
         displayCurrentTime();
     }

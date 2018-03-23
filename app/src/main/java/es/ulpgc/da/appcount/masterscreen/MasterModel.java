@@ -21,7 +21,8 @@ public class MasterModel implements I_Model, Master.PresenterToModel {
 
     @Override
     public void reset() {
-        db = new DatabaseFacade();
+        // db = new DatabaseFacade();
+        db = DatabaseFacade.getInstance();
 
         for (int j=1; j < 100; j++) {
             int randomNumber = (int)(Math.random() * 100);

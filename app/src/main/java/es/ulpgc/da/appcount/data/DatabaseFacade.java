@@ -7,9 +7,17 @@ public class DatabaseFacade implements Database {
     private ArrayList<ModelDbItem> data;
     private ArrayList<Boolean> validDataMap;
 
-    public DatabaseFacade() {
+    private DatabaseFacade() {
         data = new ArrayList<ModelDbItem>();
         validDataMap = new ArrayList<Boolean>();
+    }
+
+    private static DatabaseFacade instance;
+    public static DatabaseFacade getInstance() {
+        if (instance == null) {
+            instance = new DatabaseFacade();
+        }
+        return instance;
     }
 
     @Override
