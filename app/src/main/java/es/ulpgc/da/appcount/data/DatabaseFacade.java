@@ -7,7 +7,9 @@ public class DatabaseFacade implements Database {
     private ArrayList<ModelDbItem> data;
     private ArrayList<Boolean> validDataMap;
 
-    private DatabaseFacade() {
+    //  En un singleton el constructor debe ser privado. En nuestro ejemplo
+    //  lo dejamos publico para utilizarlo en los tests.
+    public DatabaseFacade() {
         data = new ArrayList<ModelDbItem>();
         validDataMap = new ArrayList<Boolean>();
     }

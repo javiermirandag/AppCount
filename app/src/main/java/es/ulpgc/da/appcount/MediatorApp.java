@@ -139,6 +139,11 @@ public class MediatorApp extends Application implements Mediator, Mediator.lifec
     public void openNextScreen(I_Presenter mainPresenter) {
         if (mainPresenter instanceof MainPresenter) {
             Intent intent = new Intent(this, MasterView.class);
+
+            //  Sugerencia de Alex para evitar un crash de ejecucion (que no
+            //  se reproduce en mi portatil!)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
             startActivity(intent);
         }
     }
